@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import {Box, Grid2 as Grid, Typography} from "@mui/material";
 
 /**
  * Uses Tailwind CSS for styling
@@ -9,47 +9,38 @@ import "./App.css";
 
 export default function App() {
   return (
-    <div className="app min-h-screen text-blue-200 flex items-center flex-col p-20">
-      <div className="mb-10 grid grid-cols-4 grid-rows-2 w-1/2 mx-auto">
-        <img className="opacity-25" src={logo} alt="React Logo" width="300" />
-        <img
-          className="col-span-2 row-span-3 animate-spin m-auto"
-          style={{ animationDuration: "30s" }}
-          src={logo}
-          alt="React Logo"
-          width="300"
-        />
-        <img className="opacity-25" src={logo} alt="React Logo" width="300" />
-        <img className="opacity-25" src={logo} alt="React Logo" width="300" />
-        <img className="opacity-25" src={logo} alt="React Logo" width="300" />
-      </div>
+      <Box sx={{width:'100vw', height:'100vh'}}>
+          <Box sx={{
+              width:'100%',
+              height:'100%',
+              backgroundImage:`url('/stage.jpg')`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+          }}>
+              <Grid container size={12} sx={{
+                      width:'100%',
+                      height:'100%'
+              }}>
+                  <Grid size={6} sx={{width:'100%',
+                      padding:'50px'
+                  }}>
+                      <Box sx={{
+                          width:'100%',
+                          height:'200px',
+                          backgroundImage:`url('/protosmithTitle.png')`,
+                          backgroundRepeat: "no-repeat",
+                          backgroundSize: "contain",
+                      }}></Box>
+                      <Box sx={{width:'100%', display:'flex', justifyContent:'center'}}>
+                          <Typography sx={{color:'white'}}>Our site is down for maintenance please check back soon...</Typography>
 
-      <h1 className="text-2xl lg:text-5xl mb-10 text-right">
-        Welcome to Your New React App{" "}
-        <span className="block text-lg text-blue-400">on DigitalOcean</span>
-      </h1>
+                      </Box>
 
-      <div className="grid grid-cols-2 grid-rows-2 gap-4">
-        <Button
-          text="DigitalOcean Docs"
-          url="https://www.digitalocean.com/docs/app-platform"
-        />
-        <Button
-          text="DigitalOcean Dashboard"
-          url="https://cloud.digitalocean.com/apps"
-        />
-      </div>
-    </div>
-  );
-}
+                  </Grid>
 
-function Button({ className, text, url = "#" }) {
-  return (
-    <a
-      href={url}
-      className={`${className} py-3 px-6 bg-purple-400 hover:bg-purple-300 text-purple-800 hover:text-purple-900 block rounded text-center shadow flex items-center justify-center leading-snug text-xs transition ease-in duration-150`}
-    >
-      {text}
-    </a>
+              </Grid>
+
+          </Box>
+      </Box>
   );
 }
